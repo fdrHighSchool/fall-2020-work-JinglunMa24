@@ -16,4 +16,3 @@ public class shape {
   } //close square
 
 }//close shape
-//

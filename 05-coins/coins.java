@@ -119,3 +119,4 @@ public class coins {
   }//end shop method
 
 }//end class
+//

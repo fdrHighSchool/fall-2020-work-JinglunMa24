@@ -20,24 +20,28 @@ public class calculator {
     return num;
   } //end determineFraction()
 
-  public static void produceAnswer(String exp) {
+  public static String produceAnswer(String exp) {
     if (exp.contains("+")) {
       int add = exp.indexOf("+");
       String num1 = exp.substring(0, add);
+        if (num1.contains("_")) {
+          num1 = convertFraction(num1);
+        } //end if num1 has "_"
       String num2 = exp.substring(add + 1, exp.length());
-      if (num1.contains("_")) {
+        if (num2.contains("_")) {
+          num2 = convertFraction(num2);
+        } //end if num2 has "_"
+      else if (num1.contains("_") && num2.contains("_")) {
         num1 = convertFraction(num1);
-      } //end if num1 has "_"
-      else if (num2.contains("_")) {
         num2 = convertFraction(num2);
-      } //end if num2 has "_"
+      }
       else if (!num1.contains("/") && !num1.contains("_")) {
         num1 = num1 + "/1";
       } //end if num1 doesn't have "/" and "_"
       else if (!num2.contains("/") && !num2.contains("_")) {
         num2 = num1 + "/1";
       } //end if num2 doesn't have "/" and "_"
-      System.out.println("Result: " + calculationAdd(num1, num2));
+      System.out.peintln(calculationAdd(num1, num2));
     } //end +
 
   } //end produceAnswer()

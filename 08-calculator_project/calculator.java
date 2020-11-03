@@ -2,61 +2,58 @@ import java.util.*;
 
 public class calculator {
   public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-    System.out.print("Enter the fractions expression: ");
-    String exp = input.nextLine();
-    produceAnswer(exp);
+    while (true) {
+      Scanner input = new Scanner(System.in);
+      System.out.print("Enter the fractions expression(Type quit to stop): ");
+      String exp = input.nextLine();
+      if (!exp.equals("quit")) {
+        System.out.println(produceAnswer(exp));
+      } //end produceAnswer
+      else {
+        break;
+      } //end break
+    } //end while loop
 
   } //end main
 
-  public static String convertFraction(String fraction) {
-    int lowDash = fraction.indexOf("_");
-    int divide = fraction.indexOf("/");
-    String num1 = fraction.substring(0, lowDash);
-    String num2 = fraction.substring(lowDash + 1, divide);
-    String num3 = fraction.substring(divide + 1, fraction.length());
-    int cal = Integer.parseInt(num1) * Integer.parseInt(num3) + Integer.parseInt(num2);
-    String num = reduceFraction(cal, Integer.parseInt(num3));
-    return num;
-  } //end determineFraction()
-
   public static String produceAnswer(String exp) {
-    if (exp.contains("+")) {
-      int add = exp.indexOf("+");
-      String num1 = exp.substring(0, add);
-        if (num1.contains("_")) {
-          num1 = convertFraction(num1);
-        } //end if num1 has "_"
-      String num2 = exp.substring(add + 1, exp.length());
-        if (num2.contains("_")) {
-          num2 = convertFraction(num2);
-        } //end if num2 has "_"
-      else if (num1.contains("_") && num2.contains("_")) {
-        num1 = convertFraction(num1);
-        num2 = convertFraction(num2);
-      }
-      else if (!num1.contains("/") && !num1.contains("_")) {
-        num1 = num1 + "/1";
-      } //end if num1 doesn't have "/" and "_"
-      else if (!num2.contains("/") && !num2.contains("_")) {
-        num2 = num1 + "/1";
-      } //end if num2 doesn't have "/" and "_"
-      System.out.peintln(calculationAdd(num1, num2));
-    } //end +
+    int firstS = exp.indexOf(" ");
+    int secondS = exp.lastIndexOf(" ");
+    String operator = exp.substring(firstS + 1, secondS);
+    String operand1 = exp.substring(0, firstS);
+      if (operand1.contains("/") && !operand1.contains("_")) {
+        operand1 = convertFraction(operand1);
+      } //end if operand1 has / and no _
+      else if (!operand1.contains("_")){
+        operand1 += "_0/1";
+      } //end if only integer
+    String operand2 = exp.substring(secondS + 1, exp.length());
+      if (operand2.contains("/") && !operand2.contains("_")) {
+        operand2 = convertFraction(operand2);
+      } //end if operand2 has / and no _
+      else if (!operand2.contains("_")){
+        operand2 += "_0/1";
+      } //end if only integer
+    return operand2;
 
   } //end produceAnswer()
 
-  public static String calculationAdd(String firstF, String secondF) {
-    int divide1 = firstF.indexOf("/");
-    int divide2 = secondF.indexOf("/");
-    String num1 = firstF.substring(0, divide1);
-    String num2 = firstF.substring(divide1 + 1, firstF.length());
-    String num3 = secondF.substring(0, divide2);
-    String num4 = secondF.substring(divide2 + 1, secondF.length());
-    int cal1 = Integer.parseInt(num1) * Integer.parseInt(num4) + Integer.parseInt(num2) * Integer.parseInt(num3);
-    int cal2 = Integer.parseInt(num2) * Integer.parseInt(num4);
-    String num = reduceFraction(cal1, cal2);
-    return num;
+  public static String convertFraction(String fraction) {
+    int divide = fraction.indexOf("/");
+    String numer = fraction.substring(0, divide);
+    String denom = fraction.substring(divide + 1, fraction.length());
+    String reducedF = reduceFraction(Integer.parseInt(numer), Integer.parseInt(denom));
+    int rDivide = reducedF.indexOf("/");
+    String rNumer = reducedF.substring(0, rDivide);
+    String rDenom = reducedF.substring(rDivide + 1, reducedF.length());
+    int integer = Integer.parseInt(rNumer) / Integer.parseInt(rDenom);
+    int Fnumer = Integer.parseInt(rNumer) % Integer.parseInt(rDenom);
+    String result = String.valueOf(integer) + "_" + String.valueOf(Fnumer) + "/" + rDenom;
+    return result;
+  } //end determineFraction()
+
+  public static void calculationAdd(String firstF, String secondF) {
+
   } //end calculation()
 
   public static String reduceFraction(int x, int y) {

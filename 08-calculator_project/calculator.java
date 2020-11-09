@@ -2,17 +2,13 @@ import java.util.*;
 
 public class calculator {
   public static void main(String[] args) {
-    while (true) { //while loop to let the program keep running
-      Scanner input = new Scanner(System.in); //create input method
-      System.out.print("Enter the fractions expression(Type quit to stop): "); //Ask input from user
-      String exp = input.nextLine(); //Set exp as the input from user
-      if (!exp.equals("quit")) { //if input is not "quit", keep running the program
+    String exp;
+    do { //A while loop until user
+        Scanner input = new Scanner(System.in); //create input method
+        System.out.print("Enter the fractions expression(Type quit to stop): "); //Ask input from user
+        exp = input.nextLine(); //Set exp as the input from user
         System.out.println(produceAnswer(exp)); //print out the whole program
-      } //end produceAnswer
-      else { //if anything else
-        break; //stop the program too
-      } //end break
-    } //end while loop
+    } while (!exp.equals("quit")); //end while loop
 
   } //end main
 

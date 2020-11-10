@@ -9,6 +9,17 @@ public class calculator {
         if (exp.equals("quit")) { //set if for user want to quit
           break; //stop the program
         } //end if exp is quit
+        int firstS = exp.indexOf(" "); // look for the index of the first Space
+        int secondS = exp.lastIndexOf(" "); //look at the index of the second Space
+        String operator = exp.substring(firstS + 1, secondS); //set the operator is between two spaces
+          if (operator.length() > 1) { //set if operator is more than 1
+            System.out.println("ERROR: Input is in an invalid format."); //print error
+            break; //stop the program
+          } //end if operator is error
+        else if (exp.contains("/0")) { //set if there is /0
+          System.out.println("ERROR: Cannot divide by zero."); //print error
+          break; //stop the program
+        } //end if /0 in exp
         String result = produceAnswer(exp); //set up the result
         int lowDash = result.indexOf("_"); //identify the index of low dash sign
         int divide = result.indexOf("/"); //identify the index of divide sign

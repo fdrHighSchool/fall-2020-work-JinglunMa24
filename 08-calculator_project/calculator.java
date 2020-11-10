@@ -9,13 +9,13 @@ public class calculator {
         if (exp.equals("quit")) { //set if for user want to quit
           break; //stop the program
         } //end if exp is quit
-        String result = produceAnswer(exp); //print out the whole program
-        int lowDash = result.indexOf("_");
-        int divide = result.indexOf("/");
-        String whole = result.substring(0, lowDash);
-        String frac = result.substring(lowDash + 1, result.length());
-        String numer = result.substring(lowDash + 1, divide);
-        String denom = result.substring(divide + 1, result.length());
+        String result = produceAnswer(exp); //set up the result
+        int lowDash = result.indexOf("_"); //identify the index of low dash sign
+        int divide = result.indexOf("/"); //identify the index of divide sign
+        String whole = result.substring(0, lowDash); //set whole is from first char to _
+        String frac = result.substring(lowDash + 1, result.length()); //set fraction is from next char of _ to the end
+        String numer = result.substring(lowDash + 1, divide); //set numerator is from next char of _ to /
+        String denom = result.substring(divide + 1, result.length()); //set denom is from nex char of / to the end
         if (frac.equals("0/1")) { //set if for fraction is unnecessary
           System.out.println(whole); //replace mix to just whole number
         } //end if fraction is 0/1

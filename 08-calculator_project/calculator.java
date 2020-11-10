@@ -2,13 +2,31 @@ import java.util.*;
 
 public class calculator {
   public static void main(String[] args) {
-    String exp;
-    do { //A while loop until user
+    while (true) { //A while loop for user
         Scanner input = new Scanner(System.in); //create input method
         System.out.print("Enter the fractions expression(Type quit to stop): "); //Ask input from user
-        exp = input.nextLine(); //Set exp as the input from user
-        System.out.println(produceAnswer(exp)); //print out the whole program
-    } while (!exp.equals("quit")); //end while loop
+        String exp = input.nextLine(); //Set exp as the input from user
+        if (exp.equals("quit")) { //set if for user want to quit
+          break; //stop the program
+        } //end if exp is quit
+        String result = produceAnswer(exp); //print out the whole program
+        int lowDash = result.indexOf("_");
+        int divide = result.indexOf("/");
+        String whole = result.substring(0, lowDash);
+        String frac = result.substring(lowDash + 1, result.length());
+        String numer = result.substring(lowDash + 1, divide);
+        String denom = result.substring(divide + 1, result.length());
+        if (frac.equals("0/1")) { //set if for fraction is unnecessary
+          System.out.println(whole); //replace mix to just whole number
+        } //end if fraction is 0/1
+        else if (whole.equals("0")) { //set if for whole is unnecessary
+          System.out.println(numer + "/" + denom); //replace mix to just fraction
+        } //end if whole is 0
+        else { //set else if result is mix
+          System.out.println(result); //print the result
+        } //end else
+
+    } //end while loop
 
   } //end main
 
@@ -34,6 +52,7 @@ public class calculator {
       else if (!operand2.contains("_")){ //look if operand2 is just a number
         operand2 += "_0/1"; //convert it to whole-fraction mix by adding "_0/1" behind
       } //end if only integer
+
       if (operator.equals("+")) { //identify if the operator is +
       operand1 = convertFraction(operand1); //convert operand1 to fraction
       operand2 = convertFraction(operand2); //convert operand2 to fraction

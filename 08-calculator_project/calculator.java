@@ -81,14 +81,14 @@ public class calculator {
     else if (operator.equals("*")) { //identify if the operator is *
       operand1 = convertFraction(operand1); //convert operand1 to fraction
       operand2 = convertFraction(operand2); //convert operand2 to fraction
-      String result = calculationDivide(operand1, operand2); //set result equals to the calculation
+      String result = calculationMultiply(operand1, operand2); //set result equals to the calculation
       return result; //then return the result to the main
     } //end multiplication
 
     else if (operator.equals("/")) { //identify if the operator is /
       operand1 = convertFraction(operand1); //convert operand1 to fraction
       operand2 = convertFraction(operand2); //convert operand2 to fraction
-      String result = calculationMultiply(operand1, operand2); //set result equals to the calculation
+      String result = calculationDivide(operand1, operand2); //set result equals to the calculation
       return result; //then return the result to the main
     } //end division
 

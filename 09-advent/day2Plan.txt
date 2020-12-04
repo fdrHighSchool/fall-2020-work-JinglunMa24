@@ -1,0 +1,7 @@
+Day 2 plan:
+
+- Store the inputs.
+- Create a loop to identify the inputs.
+- Build a calculation for the inputs.
+- Calculate the results that are required with specific terms.
+- Return all the sum of all the results.

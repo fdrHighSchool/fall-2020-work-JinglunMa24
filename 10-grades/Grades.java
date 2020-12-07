@@ -16,7 +16,7 @@ public class Grades {
     System.out.println(Arrays.toString(grades)); //print out the list
     System.out.println("The average of the grades is: " + getAverage(grades)); //print out the average
     System.out.println("The median of the grades is: " + getMedian(grades)); //print out the median
-    System.out.println("The mode of the grades is: " + getMode(grades)); //print out the mode
+    System.out.println(getMode(grades)); //print out the mode
   } //end main
 
   // Name: getAverage()
@@ -38,7 +38,17 @@ public class Grades {
   // Iuput: list of the grades
   // Return: the median of the grades
   public static double getMedian(int[] grades) {
-    Arrays.sort(grades); //sort the grades list from smallest to greatest
+    //sort the grades list from smallest to greatest
+    for (int i = 0; i < grades.length; i++) { //for i loop
+      for (int j = i + 1; j < grades.length; j++) { //for j loop
+        int temp = 0; //set a int temp
+        if (grades[i] > grades[j]) { //see if the next term is greater than the pervious one
+          temp = grades[i]; //set temp = grades[i]
+          grades[i] = grades[j]; //replace grades[i] with grades[j]
+          grades[j] = temp; //replace grades[j] with temp
+        } //end if next term is greater than the pervious one
+      } //end for j loop
+    } //end for i loop
 
     if (grades.length % 2 == 0) { //if the number of grades is even
       double num1 = grades[grades.length / 2 - 1]; //set num1 as grades.length / 2 and -1
@@ -55,24 +65,31 @@ public class Grades {
   // Purpose: get the mode of the list
   // Iuput: list of the grades
   // Return: the mode of the grades
-  public static int getMode(int[] grades) {
-    int num = 0;
-    int count = 0;
+  public static String getMode(int[] grades) {
+    int num = 0; //set a number
+    int count = 0; //set a final count
 
-    for (int i = 0; i < grades.length; i++) {
-      int tempNum = grades[i];
-      int tempCount = 0;
-      for (int j = 0; i < grades.length; i++) {
-        if (grades[i] == grades[j]) {
-          tempCount++;
+    for (int i = 0; i < grades.length; i++) { //for i loop
+      int tempNum = grades[i]; //set temporary number
+      int tempCount = 0; //set temporary count
+      for (int j = 0; j < grades.length; j++) { //for j loop
+        if (grades[i] == grades[j]) { //see if any number from j is equals to number from i
+          tempCount++; //temporary count + 1
         } //end if grades index of "i" is the same as grades index of "j"
       } //end for loop for j
-      if (tempCount > count) {
-        num = tempNum;
-        count = tempCount;
+      if (tempCount > count) { //if temporary count is greater than count
+        num = tempNum; //set the temporary number as the final numer
+        count = tempCount; //set the temporary count as the final count
       } //end if count is > repeats
     } //end for loop for i
-    return num;
+
+    if (count != 1) { //if yes repeats
+      return "The mode of the grades is: " + num; //return the mode
+    } //if no repeats
+
+    else { //if no repeats
+      return "No mode here, all grades are unique."; //return "no mode"
+    } //end else
   } //end getMode()
 
 } //end class

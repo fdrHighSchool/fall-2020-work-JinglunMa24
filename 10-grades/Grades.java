@@ -68,10 +68,11 @@ public class Grades {
   public static String getMode(int[] grades) {
     int num = 0; //set a number
     int count = 0; //set a final count
+    int tempCount = 0; //set the tempCount for later use
 
     for (int i = 0; i < grades.length; i++) { //for i loop
       int tempNum = grades[i]; //set temporary number
-      int tempCount = 0; //set temporary count
+      tempCount = 0; //set temporary count
       for (int j = 0; j < grades.length; j++) { //for j loop
         if (grades[i] == grades[j]) { //see if any number from j is equals to number from i
           tempCount++; //temporary count + 1
@@ -83,7 +84,11 @@ public class Grades {
       } //end if count is > repeats
     } //end for loop for i
 
-    if (count != 1) { //if yes repeats
+    if (tempCount == count && count != 1) { //if more than 1 repeats but same counts
+      return "There are more than 1 repeats and they are equal number of times."; //set Count as true
+    } //end if more than 1 repeats but same counts
+
+    else if (count != 1) { //if yes repeats
       return "The mode of the grades is: " + num; //return the mode
     } //if no repeats
 

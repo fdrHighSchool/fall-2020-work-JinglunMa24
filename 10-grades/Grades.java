@@ -56,6 +56,7 @@ public class Grades {
       return (num1 + num2) / 2; //return the result of their mean
     } //end if grades are even
 
+
     else { //if the number of grades is odd
       return grades[grades.length / 2]; //return the grade that's in the middle of the list
     } //end else

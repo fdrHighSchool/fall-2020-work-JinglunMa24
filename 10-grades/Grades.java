@@ -26,8 +26,8 @@ public class Grades {
   public static double getAverage(int[] grades) {
     double sum = 0; //set a sum
 
-    for (int i = 0; i < grades.length; i++) { //for loop to add up all the terms in the list
-      sum += grades[i]; //add them up into sum
+    for (int i : grades) { //for each loop to add up all the terms in the list
+      sum += i; //add them up into sum
     } //end loop
 
     return sum / grades.length; //return the result

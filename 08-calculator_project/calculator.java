@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class calculator {
+public class Calculator {
   public static void main(String[] args) {
     while (true) { //A while loop for user
         Scanner input = new Scanner(System.in); //create input method

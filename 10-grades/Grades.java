@@ -26,7 +26,7 @@ public class Grades {
   public static double getAverage(int[] grades) {
     double sum = 0; //set a sum
 
-    for (int i : grades) { //for each loop to add up all the terms in the list
+    for (int i : grades) { //for each to add up all the terms in the list
       sum += i; //add them up into sum
     } //end loop
 
@@ -84,11 +84,7 @@ public class Grades {
       } //end if count is > repeats
     } //end for loop for i
 
-    if (tempCount == count && count != 1) { //if more than 1 repeats but same counts
-      return "There are more than 1 repeats and they are equal number of times."; //set Count as true
-    } //end if more than 1 repeats but same counts
-
-    else if (count != 1) { //if yes repeats
+    if (count != 1) { //if yes repeats
       return "The mode of the grades is: " + num; //return the mode
     } //if no repeats
 

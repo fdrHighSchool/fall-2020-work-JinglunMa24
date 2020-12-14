@@ -3,7 +3,7 @@ public class NumberCube_2009_Q1 {
 
   } //end main
 
-  public static int[] getCubeTosses(NumberCube cube, int numTosses) {
-    return getCubeTosses;
+  public static int[] getCubeTosses(int cube, int numTosses) {
+    
   } //end getCubeTosses()
 } //end class

@@ -2,7 +2,6 @@ import java.util.*;
 
 public class SelfDivisor_2007_Q1 {
   public static void main(String[] args) {
-    System.out.print(firstNumSelfDivisors(11, 3));
   } //end main
 
   public static boolean isSelfDivisor(int number) {

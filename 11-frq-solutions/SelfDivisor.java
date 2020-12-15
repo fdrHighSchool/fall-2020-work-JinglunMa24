@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SelfDivisor_2007_Q1 {
+public class SelfDivisor {
   public static void main(String[] args) {
   } //end main
 

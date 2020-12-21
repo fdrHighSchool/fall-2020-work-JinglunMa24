@@ -89,7 +89,7 @@ public class Grades {
     } //if no repeats
 
     else { //if no repeats
-      return "No mode here, all grades are unique."; //return "no mode"
+      return "No mode here."; //return "no mode"
     } //end else
   } //end getMode()
 

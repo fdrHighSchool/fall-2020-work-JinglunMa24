@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Grades2D {
   public static void main(String[] args) {
@@ -9,8 +9,8 @@ public class Grades2D {
 
     // use the deepToString() method to display the contents of a 2D-Array
     displayArray(classGrades);
-    System.out.println("The top average is " + getValedictorian(classGrades));
-    System.out.println("The second top average is " + getSalutatorian(classGrades));
+    System.out.println("The top average is student " + (getValedictorian(classGrades) + 1));
+    System.out.println("The second top average is student " + (getSalutatorian(classGrades) + 1));
     //System.out.println(find24s(classGrades));
 
   }//end main method
@@ -58,9 +58,18 @@ public class Grades2D {
     double[] averages = new double[30];
     for (int row = 0; row < 30; row++) {
       averages[row] = getAverage(arr[row]);
-    } //end for loop
+    } //end for row loop
 
-    return 0;
+    double maxValue = averages[0];
+    int index = 0;
+    for (int i = 0; i < averages.length; i++) {
+      if (averages[i] > maxValue) {
+        maxValue = averages[i];
+        index = i;
+      } //end if
+    } //end for i loop
+
+    return index;
   }// end getValedictorian method
 
   /*
@@ -74,8 +83,17 @@ public class Grades2D {
     for (int row = 0; row < 30; row++) {
       averages[row] = getAverage(arr[row]);
     } //end for loop
-    
-    return 0;
+
+    double maxValue = averages[0];
+    int index = 0;
+    for (int i = 0; i < averages.length; i++) {
+      if (averages[i] > maxValue && i != getValedictorian(arr)) {
+        maxValue = averages[i];
+        index = i;
+      } //end if
+    } //end for i loop
+
+    return index;
   }// end getSalutatorian method
 
   /*

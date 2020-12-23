@@ -107,7 +107,7 @@ public class Grades2D {
     for (int grades : arr) {
       sum += grades;
     }
-    return sum / (double)arr.length;
+    return (double)sum / arr.length;
   }// end getAverage method
 
 

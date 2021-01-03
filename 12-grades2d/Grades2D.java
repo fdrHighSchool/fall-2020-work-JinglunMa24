@@ -60,7 +60,7 @@ public class Grades2D {
       averages[row] = getAverage(arr[row]);
     } //end for row loop
 
-    double maxValue = averages[0];
+    double maxValue = 0;
     int index = 0;
     for (int i = 0; i < averages.length; i++) {
       if (averages[i] > maxValue) {
@@ -84,7 +84,7 @@ public class Grades2D {
       averages[row] = getAverage(arr[row]);
     } //end for loop
 
-    double maxValue = averages[0];
+    double maxValue = 0;
     int index = 0;
     for (int i = 0; i < averages.length; i++) {
       if (averages[i] > maxValue && i != getValedictorian(arr)) {

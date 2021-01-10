@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Student {
   // instance variables
   private String name;
@@ -13,24 +15,23 @@ public class Student {
 
   // other methods
 
-  public String getName() {
-
-    return "";
+  public String getName(String name) {
+    this.name = name;
+    return name;
   } //end getName()
 
-  public String getOSIS() {
-
-    return "";
+  public String getOSIS(String osis) {
+    this.osis = osis;
+    return osis;
   } //end getOSIS()
 
   public void setName(String name) {
     this.name = name;
-
   } //end setName()
 
-  public void addGrades(int arr) {
-
-
+  public void addGrades(int grade) {
+    this.grades = new int[10];
+    grades.add(grade);
   } //end addGrades()
 
   public double calculateAverage() {
@@ -39,7 +40,7 @@ public class Student {
   } //end calculateAverage()
 
   public String toString() {
-    return "Student:" + this.name + " OSIS:" + this.osis;
+    return "Student:" + this.name + "\nOSIS:" + this.osis;
   } //end toString()
 
 } //end class

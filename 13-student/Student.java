@@ -15,23 +15,36 @@ public class Student {
 
   // other methods
 
-  public String getName(String name) {
-    this.name = name;
-    return name;
+  public String getName() {
+    return this.name;
   } //end getName()
 
-  public String getOSIS(String osis) {
-    this.osis = osis;
-    return osis;
+  public String getOSIS() {
+    return this.osis;
   } //end getOSIS()
+
+  public void displayGrades() {
+    System.out.println(Arrays.toString(this.grades));
+  } //end getGrades()
 
   public void setName(String name) {
     this.name = name;
   } //end setName()
 
+  public void fillArray() {
+    for (int col = 0; col < arr[row].length; col++) {
+      arr[col] = (int)(Math.random() * 46 + 55);
+    }// end col for loop
+  }// end fillArray method
+
   public void addGrades(int grade) {
-    this.grades = new int[10];
-    grades.add(grade);
+    int i = 0;
+
+    while (this.grades[i] != 0) {
+      i++;
+    } //end while loop
+
+    this.grades[i] = grade;
   } //end addGrades()
 
   public double calculateAverage() {
@@ -40,7 +53,7 @@ public class Student {
   } //end calculateAverage()
 
   public String toString() {
-    return "Student:" + this.name + "\nOSIS:" + this.osis;
+    return "Student:" + this.name + " OSIS:" + this.osis;
   } //end toString()
 
 } //end class

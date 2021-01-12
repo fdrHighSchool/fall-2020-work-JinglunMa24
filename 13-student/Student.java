@@ -49,10 +49,15 @@ public class Student {
 
   public double calculateAverage() {
     double sum = 0.0;
-    for (double grade : this.grades) {
-      sum += grade;
+    int count = 0;
+
+    for (int i = 0; i < this.grades.length; i++) {
+      if (this.grades[i] != 0) {
+        sum += this.grades[i];
+        count++;
+      } //end if value if not 0
     } //end for loop
-    return sum / this.grades.length;
+    return sum / count;
   } //end calculateAverage()
 
   public String toString() {

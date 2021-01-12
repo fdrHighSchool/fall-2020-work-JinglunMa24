@@ -32,8 +32,8 @@ public class Student {
   } //end setName()
 
   public void fillArray() {
-    for (int i = 0; i < grades.length; i++) {
-      grades[i] = (int)(Math.random() * 46 + 55);
+    for (int i = 0; i < this.grades.length; i++) {
+      this.grades[i] = (int)(Math.random() * 46 + 55);
     }// end for loop
   }// end fillArray method
 
@@ -48,8 +48,11 @@ public class Student {
   } //end addGrades()
 
   public double calculateAverage() {
-
-    return 0.0;
+    double sum = 0.0;
+    for (double grade : this.grades) {
+      sum += grade;
+    } //end for loop
+    return sum / this.grades.length;
   } //end calculateAverage()
 
   public String toString() {

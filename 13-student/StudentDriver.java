@@ -12,9 +12,11 @@ public class StudentDriver {
 
     System.out.println(student1.getName());
     System.out.println(student1.getOSIS());
-    student1.addGrades(100);
+    
+    student1.fillArray();
+    student2.fillArray();
     student1.displayGrades();
-
+    student2.displayGrades();
   } //end main
 
 } //end class

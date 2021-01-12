@@ -32,9 +32,9 @@ public class Student {
   } //end setName()
 
   public void fillArray() {
-    for (int col = 0; col < arr[row].length; col++) {
-      arr[col] = (int)(Math.random() * 46 + 55);
-    }// end col for loop
+    for (int i = 0; i < grades.length; i++) {
+      grades[i] = (int)(Math.random() * 46 + 55);
+    }// end for loop
   }// end fillArray method
 
   public void addGrades(int grade) {

@@ -28,8 +28,8 @@ public class Food {
   } //end getRetailCost()
 
   public void getTotalPrice() {
-    double totalPrice = this.retailCost * 0.08875;
-    System.out.println("The total price of this product is $" + totalPrice);
+    double totalPrice = this.retailCost + this.retailCost * 0.08875;
+    System.out.println("The total price after tax is $" + totalPrice);
   } //end getTatolPrice()
 
   public void calculateIncome() {

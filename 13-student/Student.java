@@ -5,12 +5,14 @@ public class Student {
   private String name;
   private String osis;
   private int[] grades;
+  private int numGrades;
 
   // constructor
   public Student(String n, String o) {
     this.name = n;
     this.osis = o;
-    grades = new int[10];
+    this.grades = new int[10];
+    this.numGrades = 0;
   } //end Student()
 
   // other methods
@@ -35,29 +37,38 @@ public class Student {
     for (int i = 0; i < this.grades.length; i++) {
       this.grades[i] = (int)(Math.random() * 46 + 55);
     }// end for loop
+    this.numGrades = 10;
   }// end fillArray method
 
   public void addGrades(int grade) {
-    int i = 0;
+    //if there's no room, then replace the lowest score
+    if (this.numGrades == 10) {
 
-    while (this.grades[i] != 0) {
-      i++;
-    } //end while loop
-
-    this.grades[i] = grade;
+    } //end if
+    this.grades[this.numGrades] = grade;
+    this.numGrades++;
   } //end addGrades()
 
   public double calculateAverage() {
     double sum = 0.0;
     int count = 0;
 
+    //VERSION 1 - loop through entire array always
+    /*
     for (int i = 0; i < this.grades.length; i++) {
       if (this.grades[i] != 0) {
         sum += this.grades[i];
         count++;
       } //end if value if not 0
     } //end for loop
-    return sum / count;
+    */
+
+    //VERSION 2 - use numGrades to determine how many iterations through the
+    for (int i = 0; i < this.numGrades; i++) {
+      sum += this.grades[i];
+    } //end for loop
+
+    return sum / this.numGrades;
   } //end calculateAverage()
 
   public String toString() {

@@ -3,12 +3,14 @@ public class Food {
   private double wholesaleCost;
   private double retailCost;
   private double calories;
+  private double totalPrice;
 
   public Food(String n, double w, double r, double c) {
     this.name = n;
     this.wholesaleCost = w;
     this.retailCost = r;
     this.calories = c;
+    this.totalPrice = 0.0;
   } //end Food()
 
   public String getName() {
@@ -28,13 +30,12 @@ public class Food {
   } //end getRetailCost()
 
   public void getTotalPrice() {
-    double totalPrice = this.retailCost + this.retailCost * 0.08875;
-    System.out.println("The total price after tax is $" + totalPrice);
+    this.totalPrice = this.retailCost + this.retailCost * 0.08875;
+    System.out.println("The total price after tax is $" + this.totalPrice);
   } //end getTatolPrice()
 
   public void calculateIncome() {
-    double totalPrice = this.retailCost + this.retailCost * 0.08875;
-    System.out.println("The income of this food product would be $" + (totalPrice - this.wholesaleCost));
+    System.out.println("The income of this food product would be $" + (this.totalPrice - this.wholesaleCost));
   } //end calculateIncome()
 
   public String toString() {

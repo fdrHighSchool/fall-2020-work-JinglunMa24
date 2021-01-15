@@ -41,8 +41,9 @@ public class Student {
   }// end fillArray method
 
   public void addGrades(int grade) {
-    //if there's no room, then replace the lowest score
+    // if there's no room, then replace the lowest score
     if (this.numGrades == 10) {
+      // search for lowest value
       int lowestIndex = 0;
       int lowestGrade = this.grades[0];
 
@@ -52,6 +53,8 @@ public class Student {
           lowestGrade = this.grades[i];
         } //end if
       } //end for loop
+
+      // replace (if grade is greater than the lowest)
       this.grades[lowestIndex] = grade;
     } //end if
 

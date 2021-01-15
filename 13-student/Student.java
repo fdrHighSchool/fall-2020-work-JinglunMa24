@@ -43,10 +43,23 @@ public class Student {
   public void addGrades(int grade) {
     //if there's no room, then replace the lowest score
     if (this.numGrades == 10) {
+      int lowestIndex = 0;
+      int lowestGrade = this.grades[0];
 
+      for (int i = 0; i < this.grades.length; i++) {
+        if (this.grades[i] < lowestGrade) {
+          lowestIndex = i;
+          lowestGrade = this.grades[i];
+        } //end if
+      } //end for loop
+      this.grades[lowestIndex] = grade;
     } //end if
-    this.grades[this.numGrades] = grade;
-    this.numGrades++;
+
+    else {
+      this.grades[this.numGrades] = grade;
+      this.numGrades++;
+    } //end else
+
   } //end addGrades()
 
   public double calculateAverage() {

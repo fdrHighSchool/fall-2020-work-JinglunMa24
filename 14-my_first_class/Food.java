@@ -38,7 +38,7 @@ public class Food {
     System.out.println("The total price after tax is $" + this.totalPrice);
   } //end getTatolPrice()
 
-  public void calculateIncome() {
+  public void calculateIncome() { // must follow by the previous behaviors method
     System.out.println("The income of this food product would be $" + (this.totalPrice - this.wholesaleCost));
   } //end calculateIncome()
 

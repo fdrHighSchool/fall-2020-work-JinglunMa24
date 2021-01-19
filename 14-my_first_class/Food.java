@@ -39,7 +39,6 @@ public class Food {
   } //end getTatolPrice()
 
   public void calculateIncome() { // must follow by the previous behaviors method
-    this.totalPrice = this.retailCost + this.retailCost * 0.08875;
     System.out.println("The income of this food product would be $" + (this.totalPrice - this.wholesaleCost));
   } //end calculateIncome()
 
